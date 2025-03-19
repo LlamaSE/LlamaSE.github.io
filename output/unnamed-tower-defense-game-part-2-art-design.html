@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dire Llama Games | Unnamed Tower Defense Game Part 2: Art Design</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="LlamaSE" />
+
+    <meta name="keywords" content="game dev,godot,tower defense,programming" />
+</head>
+<body>
+    <header>
+        <nav style="overflow: hidden;">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/tags">Tags</a></li>
+                <li><a href="/categories">Categories</a></li>
+                <li><a href="/archives">Archives</a></li>
+            </ul>
+        </nav>
+        <div class="header_box" style="height: 50px">
+        <h1><a href="/">
+            <image src='' class="avatar" width="50px" /><span class="site_title">Dire Llama Games</span>
+            </a></h1></div>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">            <h4 class="date">Mar 19, 2025</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="/unnamed-tower-defense-game-part-2-art-design.html" rel="bookmark" title="Permanent Link to &quot;Unnamed Tower Defense Game Part 2: Art Design&quot;">Unnamed Tower Defense Game Part 2: Art Design</a>
+                </h2>
+
+                
+                
+
+                <p><a href="/unnamed-tower-defense-game-part-1-inspiration-and-concept.html">Part 1</a></p>
+<p>I personally think that when it comes to game development, especially solo game development, nailing down your art style early in the process is extremely important. You can and should use placeholder art to speed up your development process but having a vision for what your game looks like is arguably the most important part of designing a game. Every time I have started a project previously I have ended up losing interest or giving up because I didn't feel that I (a non-artist) could properly execute an art style for that particular type of game that would be both possible and appealing.</p>
+<p>For this reason, when I sat down last April to start prototyping my new tower defense game, the very first thing I considered was my art style. The mechanical theme of poker was already cemented at this point but I knew I wanted something that would be relatively easy for me to execute. I don't have much experience with 3D modelling, but my previous attempts to build games using pixel art have ended in me getting frustrated and giving up. Pixel art really isn't the beginner-friendly art style most make it out to be. You can cobble something together that looks bad pretty easily but creating beautiful pixel art is something that takes years of practice. At the same time I was pondering the beginnings of this project <a href="https://store.steampowered.com/app/2379780/Balatro/">Balatro</a> had been (and still is) blowing up majorly. I played the game a bunch and really loved the video poker sort of style but a pure video poker style isn't something that would work for my game outside of the UI so with that inspiration I decided to tackle "video poker" from a new angle.</p>
+<p>I'm not sure where I had the epiphany but the art style I ended up settling on was a synth/retro/vaporwave-inspired color pallete and an abstract wireframe 3d style. I thought the synthwave colors would mesh well with video poker seeing as video poker itself was a product of the late '70s and early '80s where many of the synthesizers sampled by synthwave artists came from. This also gave me a good direction to look down for doing music down the line. (a discussion for another time) After this discovery, the first thing I did before writing a single line of code was to start drafting up some quick and dirty wireframe pieces. I wanted to see if I could come up with a pipeline for art to game that wouldn't be too time consuming while producing a decent and appealing result.</p>
+<p>Thankfully because I posted about my progress to my friends in Discord I still have all of the files even though I formatted my computer recently. My first thought for tower design was to do something chess-inspired so the first piece of art I put together was this:</p>
+<p><img alt="Photo" src="/chess_piece.png"></p>
+<p>This ended up not being the direction I would go but it was good enough to figure out my rendering situation. I experimented for a while doing render tests in Godot, which would end up becoming my engine of choice for this project. I experimented with edge hightling and pixelization shaders to try and create something that felt 80s. </p>
+<video src="/chess_piece_render.webm" width="320" height="240" controls></video>
+<video src="/big_render.webm" width="320" height="240" controls></video>
+
+<p>I generally liked how this looked but it was hard to get things to behave consistently, especially when using an orthogonal camera, which I knew wanted to do from the beginning. I ended up deciding that the best option was to use these abstract shapes but manually add a second material via blender's inset tool. This meant I could decide exactly which edges had the wireframe look and which didn't, without it being a major headache in terms of process. I also wasn't concerned about polygon count since my meshes were already so low-poly. </p>
+<p>Here's an image from a little bit later in my process, showing a tower along with the first attempt at rendering the level (hasn't changed much since then.)</p>
+<p><img alt="Photo" src="/render_test.png"></p>
+<p>At the same time I was working out the 3D aspect of the art style I was also thinking about UI. Using the vaporwave color palette I threw together to figure out 3d, I drafted up some cards in Aseprite.</p>
+<p><img alt="Photo" src="/cards.png"></p>
+<p>I personally thought these were a slam dunk. They took up minimal space on the screen but read very well at a distance. I had a standardized 5x5 pixel size for suit symbols which meant I had to make some sacrifices in terms of readability but my attempts at using bigger symbols ended up making cards that I thought looked much worse overall. These cards conveyed all the information I needed to and, despite their small size, read well on big and large screens alike. The colors here correspond to their elemental damage type, and while the types have switched around since I made this first draft, the basic design of the cards has not. I also threw together some basic textures for doing quick and dirty UI panels but honestly after comparing how my game looks to how 80s video poker machines look, I don't expect there to be much of a difference between what I have now and what the final product will look like.</p>
+<p>So how does the game look at present? Well, have a look:</p>
+<video src="/vid1.webm" width="320" height="240" controls></video>
+
+<p><img alt="Photo" src="/game_screen.png"></p>
+<p>It's not the most impressive looking game ever but it definitely has a style. I'm proud of the work I've done but all I can think about these days is how much more I have to do to get a finished product. There's still a lot even in just this image and short clip that is unfinished or a placeholder.</p>
+<p>Join me next time for... code? I guess code.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="/unnamed-tower-defense-game-part-2-art-design.html">posted at 17:00</a>
+                    &nbsp;&middot;&nbsp;<a href="/category/game-dev.html" rel="tag">Game Dev</a>
+                    &nbsp;&middot;
+                    &nbsp;<a href="/tag/game-dev.html" class="tags">game dev</a>
+                    &nbsp;<a href="/tag/godot.html" class="tags">godot</a>
+                    &nbsp;<a href="/tag/tower-defense.html" class="tags">tower defense</a>
+                    &nbsp;<a href="/tag/programming.html" class="tags">programming</a>
+                </div>
+            </article>
+            <div class="clear"></div>
+            <footer>
+                <p>
+                <a href="https://github.com/tcarwash/blue-penguin-dark">Blue Penguin Dark</a> Theme
+                &middot;
+                Powered by <a href="http://getpelican.com">Pelican</a>
+            </footer>
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

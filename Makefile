@@ -10,6 +10,7 @@ PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 GITHUB_PAGES_BRANCH=gh-pages
 GITHUB_PAGES_COMMIT_MESSAGE=Generate Pelican site
+CNAME=CNAME
 
 
 DEBUG ?= 0
@@ -71,6 +72,7 @@ devserver-global:
 
 publish:
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
+	cp $(CNAME) "$(OUTPUTDIR)"
 
 github: publish
 	ghp-import -m "$(GITHUB_PAGES_COMMIT_MESSAGE)" -b $(GITHUB_PAGES_BRANCH) "$(OUTPUTDIR)" --no-jekyll
